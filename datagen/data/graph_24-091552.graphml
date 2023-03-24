@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d2" for="edge" attr.name="fraction" attr.type="long"/>
+<key id="d1" for="edge" attr.name="fraction" attr.type="double"/>
+<key id="d0" for="node" attr.name="value" attr.type="double"/>
+<graph edgedefault="directed"><node id="VN">
+  <data key="d0">65.73142146868169</data>
+</node>
+<node id="XO">
+  <data key="d0">97.74581512630425</data>
+</node>
+<node id="CJ">
+  <data key="d0">31.241694626483024</data>
+</node>
+<node id="UO">
+  <data key="d0">33.358550893124345</data>
+</node>
+<node id="RX">
+  <data key="d0">95.9976560529197</data>
+</node>
+<node id="CH">
+  <data key="d0">63.08817583623501</data>
+</node>
+<node id="WM">
+  <data key="d0">58.63427824516458</data>
+</node>
+<node id="LZ">
+  <data key="d0">40.966957244386506</data>
+</node>
+<node id="ZS">
+  <data key="d0">48.68201325380122</data>
+</node>
+<node id="JJ">
+  <data key="d0">51.717548706499386</data>
+</node>
+<edge source="CJ" target="UO">
+  <data key="d1">0.18294082436623982</data>
+</edge>
+<edge source="CJ" target="CH">
+  <data key="d1">0.5270461755539644</data>
+</edge>
+<edge source="CJ" target="JJ">
+  <data key="d1">0.32221368243755877</data>
+</edge>
+<edge source="UO" target="XO">
+  <data key="d1">0.3660418628716223</data>
+</edge>
+<edge source="UO" target="RX">
+  <data key="d2">1</data>
+</edge>
+<edge source="UO" target="CH">
+  <data key="d1">0.18043023760170718</data>
+</edge>
+<edge source="UO" target="ZS">
+  <data key="d1">0.04526949780921219</data>
+</edge>
+<edge source="RX" target="UO">
+  <data key="d1">0.8170591756337602</data>
+</edge>
+<edge source="RX" target="CH">
+  <data key="d1">0.29252358684432844</data>
+</edge>
+<edge source="RX" target="LZ">
+  <data key="d1">0.18030796851242747</data>
+</edge>
+<edge source="RX" target="JJ">
+  <data key="d1">0.1786311848258123</data>
+</edge>
+<edge source="WM" target="LZ">
+  <data key="d1">0.8196920314875725</data>
+</edge>
+<edge source="WM" target="JJ">
+  <data key="d1">0.004420388134103503</data>
+</edge>
+<edge source="LZ" target="VN">
+  <data key="d1">0.2440035249542467</data>
+</edge>
+<edge source="LZ" target="XO">
+  <data key="d1">0.6339581371283777</data>
+</edge>
+<edge source="LZ" target="WM">
+  <data key="d1">0.6991848045633375</data>
+</edge>
+<edge source="LZ" target="JJ">
+  <data key="d1">0.4947347446025254</data>
+</edge>
+<edge source="JJ" target="VN">
+  <data key="d1">0.7559964750457533</data>
+</edge>
+<edge source="JJ" target="CJ">
+  <data key="d2">1</data>
+</edge>
+<edge source="JJ" target="WM">
+  <data key="d1">0.30081519543666246</data>
+</edge>
+<edge source="JJ" target="ZS">
+  <data key="d1">0.9547305021907878</data>
+</edge>
+</graph></graphml>
