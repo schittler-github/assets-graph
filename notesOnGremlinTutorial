@@ -1,0 +1,111 @@
+// these notes were takes during the online youtube tutorial offered by
+// "Join the Graph" at:
+// https://www.youtube.com/@jointhegraph4089
+// please check his tutorial, nice hands on introduction.
+
+//     >>> first tutorial <<<
+// create a demo database
+graph = TinkerFactory.createModern()
+
+// create the traversal source
+g =graph.traversal()
+
+// get all vertices
+g.V()
+ 
+// get vertice with ID 1
+g.V(1)
+ 
+// get the value of the property "name" on the vertex with ID 1
+g.V(1).values("name")
+ 
+// get outgoing edges from V(1) with label "knows" 
+g.V(1).outE("knows")
+ 
+// get the name of the people V(1) knows
+//e.g.1, first move to the edge and then to the node
+g.V(1).outE("knows").inV().values("name")
+//e.g.2, mode directly to the nodes
+g.V(1).out("knows").values("name")
+ 
+// get the name of the people V(1) knows which are older than 30
+ g.V(1).out("knows").has("age",gt(30)).values("name")
+ 
+//     >>> second tutorial <<<
+// create an empty database
+graph = TinkerGraph.open()
+
+//create traversal source
+
+g = graph.traversal()
+
+//create vertex 1
+v1 = g.addV("person")\
+	   .property(id,1)\
+	   .property("name","marko")\
+	   .property("age","29")\
+	   .next()
+	   
+
+//create vertex 2
+v2 = g.addV("software")\
+	   .property(id,3)\
+	   .property("name","lop")\
+	   .property("lang","java")\
+	   .next()
+	   
+// create an edge
+g.addE("created")\
+	.from(v1)\
+	.to(v2)\
+	.property(id,9)\
+	.property("weight",0.4)
+	
+// get the name of the software created by marko
+g.V().has("person","name","marko").out("created").values("name")
+
+
+//     >>> third tutorial <<<
+//create demo graph and traverse in one command
+g = TinkerFactory.createModern().traversal()
+
+// get the ages of the persons named "vadas" and "marko"
+g.V().has("person","name",within("vadas","marko")).values("age")
+
+// get their mean ages
+g.V().has("person","name",within("vadas","marko"))\
+			.values("age").mean()
+			
+// get the people that created software with marko
+g.V().has("person","name","marko").out("created").in("created")\
+		.values("name")
+		
+//or, in a better way, lets exclude marko: use the "as()" to save partial results
+// use where() to filter results, and neq for comparison
+g.V().has("person","name","marko").as("exclude")\
+		.out("created").in("created")\
+		.where(neq("exclude"))\
+		.values("name")
+
+		// has filter on properties, where filter the object itself?
+
+// give the last vertices in a traverse with many steps, if they do not drop out 
+g.V().out().out()   // for two steps
+
+// get the paths instead; as saves the last step "select()" load from memory
+g.V().as("step0")\
+	.out().as("step1")\
+	.out().as("step2")\
+	.select("step0","step1","step2")
+	//this exclude the paths with less than 3 steps
+	
+// group vertices by "labels"
+g.V()\
+	.group()\
+	.by(label)
+	
+//same as before but use the names instead of labels
+g.V()\
+	.group()\
+	.by(label)\
+	.by("name")
