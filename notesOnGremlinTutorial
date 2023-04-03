@@ -2,6 +2,7 @@
 // "Join the Graph" at:
 // https://www.youtube.com/@jointhegraph4089
 // please check his tutorial, nice hands on introduction.
+// I suggest to use Java highlight for the text as the syntax os similar.
 
 //     >>> first tutorial <<<
 // create a demo database
@@ -109,3 +110,10 @@ g.V()\
 	.group()\
 	.by(label)\
 	.by("name")
+	
+	
+//     >>> from my experiments <<<
+// to import a graphml file into the console	
+// use path+filename, e.g.
+
+graph.io(IoCore.graphml()).readGraph("D:/gitrepos/assetnet/gremlinTest/graph_test_renamed.xml")
