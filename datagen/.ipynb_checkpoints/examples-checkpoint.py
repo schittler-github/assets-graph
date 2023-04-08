@@ -1,3 +1,4 @@
+import numpy as np
 from gremlin_python.process.graph_traversal import __
 from gremlin_python.process.traversal import Barrier, Bindings, Cardinality, Column, Direction, Operator, Order, P, Pop, Scope, T, WithOptions
 
@@ -69,6 +70,8 @@ class Example1:
         lista_p = []
         for i in range(len(self.G.assetlist)):
             lista_p.append(self.g.V(self.G.assetlist[i]).until(__.has(T.id,P.within(self.lista_firstIn[i]))).repeat(__.out().simplePath()).path().toList())
+        
+        print("all paths",lista_p,"\n")
         return lista_p
     
     def findPathFraction(self):
@@ -79,7 +82,7 @@ class Example1:
                 .outE().sack(Operator.sum_).by("fraction").inV()\
                 .until(__.has(T.id,P.within(self.lista_firstIn[i]))).repeat(__.outE().sack(Operator.mult).by("fraction").inV().simplePath())\
                 .sack().toList())
-        #print(lista_cw)
+        print(lista_cw)
 
         # extract the last step of each path to choose the right outcomming value into the original 
         lista_path_last_value = []
@@ -124,3 +127,38 @@ class Example1:
 class Example2:
     def __init__(self,traverse,graph):
         print("start example")
+        self.G=graph
+        self.g=traverse
+        
+    def getInfluenceMatrix(self):
+        l_size = len(self.G.assetlist)
+        
+        myMatrix = np.empty((l_size,l_size))
+        
+        for i in range(l_size):
+            start_node = self.G.assetlist[i]
+            for j in range(l_size):
+                if (j == i):
+                    # set to one, but it does not compute self values
+                   # print("1: i=j")
+                    myMatrix[i][j] = 1
+                    
+                else:
+                    vals = []
+                    end_node = self.G.assetlist[j]
+        
+                    vals.append(self.g.withSack(0).V(start_node)\
+                    .outE().sack(Operator.sum_).by("fraction").inV()\
+                    .until(__.has(T.id,P.within(end_node))).repeat(__.outE().sack(Operator.mult).by("fraction").inV().simplePath())\
+                    .sack().toList())
+                    
+                    if(vals[0]):
+                        total = sum(vals[0])
+                        myMatrix[i][j] = total
+                        #print(total)
+                        
+                    else:
+                        myMatrix[i][j] = 0
+                        #print("0: no connection")
+                        
+        return myMatrix

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="fraction" attr.type="long"/>
+<key id="d0" for="edge" attr.name="fraction" attr.type="double"/>
+<graph edgedefault="directed"><node id="DY"/>
+<node id="AG"/>
+<node id="TC"/>
+<node id="DB"/>
+<node id="BX"/>
+<node id="KU"/>
+<node id="FV"/>
+<node id="HH"/>
+<node id="UO"/>
+<node id="KH"/>
+<edge source="DY" target="DB">
+  <data key="d0">0.06265972937688757</data>
+</edge>
+<edge source="DY" target="KH">
+  <data key="d1">1</data>
+</edge>
+<edge source="AG" target="DB">
+  <data key="d0">0.46386318260114867</data>
+</edge>
+<edge source="AG" target="FV">
+  <data key="d0">0.34662478751638626</data>
+</edge>
+<edge source="DB" target="HH">
+  <data key="d0">0.07314878265421465</data>
+</edge>
+<edge source="BX" target="KU">
+  <data key="d0">0.548873885542095</data>
+</edge>
+<edge source="BX" target="FV">
+  <data key="d0">0.5132127843068146</data>
+</edge>
+<edge source="KU" target="DB">
+  <data key="d0">0.47347708802196375</data>
+</edge>
+<edge source="KU" target="HH">
+  <data key="d0">0.9268512173457853</data>
+</edge>
+<edge source="KU" target="UO">
+  <data key="d0">0.44217808876480147</data>
+</edge>
+<edge source="FV" target="UO">
+  <data key="d0">0.5578219112351985</data>
+</edge>
+<edge source="HH" target="FV">
+  <data key="d0">0.14016242817679914</data>
+</edge>
+<edge source="UO" target="DY">
+  <data key="d1">1</data>
+</edge>
+<edge source="UO" target="KU">
+  <data key="d0">0.06385603643826665</data>
+</edge>
+<edge source="KH" target="KU">
+  <data key="d0">0.3872700780196383</data>
+</edge>
+</graph></graphml>
