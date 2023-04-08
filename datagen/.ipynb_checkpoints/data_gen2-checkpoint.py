@@ -63,9 +63,11 @@ class AssetNetwork:
     
     def gen_edge_weights(self):
         # count number of connections for a node
-        count = 0
-        edges_index=[]
+        
+        
         for i in self.assetlist:
+            edges_index=[]
+            count = 0
             node = i
             for j in range(len(self.edges)):
                 if self.edges[j][1] == node:
@@ -76,12 +78,12 @@ class AssetNetwork:
             parts_local = self.split_num_random(1,count)
             #print(parts_local)
     
-            count = 0
+            count2 = 0
             for j in edges_index:
                 #print(j)
                 # weights are changed directly over the external variable
-                self.weights[j]=parts_local[count]
-                count=count+1
+                self.weights[j]=parts_local[count2]
+                count2=count2+1
                 
         #print(self.weights)        
         return  self.weights
