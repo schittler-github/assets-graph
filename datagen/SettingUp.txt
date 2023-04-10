@@ -28,7 +28,7 @@ For this projec to work, we need to install some programs and modules first. Her
     b) gremlinpython
     c) pyvis
 
-6) now you should be able to run the demo code.
+6) now you should be able to run the demo code, starting on the "main" file.
 
 7) please explore and comment
 
